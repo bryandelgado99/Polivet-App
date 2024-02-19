@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import Veterinario from '../models/Veterinario.js'
 import Paciente from '../models/Paciente.js'
 
-
+const JWT_SECRET = 'SDFGSJDF7246782CFBKJSDF'
 
 
 // Método para proteger rutas
@@ -25,7 +25,7 @@ if(!req.headers.authorization) return res.status(404).json({msg:"Lo sentimos, de
 
 
         // verificar el token recuperado con el almacenado 
-        const {id,rol} = jwt.verify(authorization.split(' ')[1],process.env.JWT_SECRET)
+        const {id,rol} = jwt.verify(authorization.split(' ')[1],process.env.JWT_SECRET || JWT_SECRET)
         
         // Verificar el rol
         if (rol==="veterinario"){

@@ -6,7 +6,6 @@ import Veterinario from "../models/Veterinario.js"
 import mongoose from "mongoose";
 
 
-
 // Método para el login
 const login = async(req,res)=>{
     const {email,password} = req.body

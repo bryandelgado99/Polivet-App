@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken";
 
-
+const JWT_SECRET = 'SDFGSJDF7246782CFBKJSDF'
 
 const generarJWT = (id,rol)=>{
 
-    return jwt.sign({id,rol},process.env.JWT_SECRET,{expiresIn:"1d"})
+    return jwt.sign({id,rol},process.env.JWT_SECRET || JWT_SECRET,{expiresIn:"1d"})
 }
 
 
