@@ -67,3 +67,6 @@ Este sistema permite gestionar el inventario de productos en una tienda.
 **Soporte:**
 
 * Si tienes problemas con el proyecto, puedes abrir un ticket en el siguiente
+
+** Colaboradores **
+Nombres de los colaboradores del proyecto y sus imagenes.
