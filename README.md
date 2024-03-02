@@ -234,7 +234,7 @@ Body
   "telefono":"022222222"
 }
 ```
-
+****
 ### Paciente
 
 - **Iniciar Sesión**
@@ -325,7 +325,7 @@ Body
   "salida":"03-22-2024" 
 }
 ```
-
+****
 ### Tratamiento
 
 > [!IMPORTANT]
@@ -380,6 +380,10 @@ Body
   POST /api/tratamiento/estado/:id
 ```
 
+## Licencia
+
+Proyecto licenciado bajo [MIT License](https://choosealicense.com/licenses/mit/)
+
 ## Autores
 
 - Eduardo Almachi - [@edusebass](https://github.com/edusebass)
@@ -398,32 +402,41 @@ Body
 
 - Danny Yanacallo - [@DannyYanacallo1755](https://github.com/DannyYanacallo1755)
 
+## Información Adicional
+
+**Documentación de la API:** [API - veterinaria](https://linktodocumentation)
+
+**Video del funcionamiento de la aplicación:** [POLIVET](https://linkvideo)
+
 ## Capturas de pantalla
-Landing Page
+
+### Interfaz de Usuario
+
+- Landing Page
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-1.png)
 
-Inicio de Sesión
+- Inicio de Sesión
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-2.png)
 
-Registro
+- Registro
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-3.png)
 
-Recuperación de Contraseña
+- Recuperación de Contraseña
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-4.png)
 
-Confirmación de Correo Electrónico
+- Confirmación de Correo Electrónico
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-6.png)
 
-Página no Encontrada
+- Página no Encontrada
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-5.png)
 
-Dashboard o Panel Central de Información
+- Dashboard o Panel Central de Información
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-7.png)
 
