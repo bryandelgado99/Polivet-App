@@ -22,7 +22,7 @@ const sendMailToUser = async(userMail,token)=>{
     html: `
     <h1>Sistema de gestión (VET-ESFOT 🐶 😺)</h1>
     <hr>
-    <a href=${process.env.URL_FRONTEND || URL_FRONTEND}confirmar/${token}>Clic para confirmar tu cuenta</a>
+    <a href=${process.env.URL_FRONTEND || URL_FRONTEND}/confirmar/${token}>Clic para confirmar tu cuenta</a>
     <hr>
     <footer>Grandote te da la Bienvenida!</footer>
     `
@@ -39,7 +39,7 @@ const sendMailToRecoveryPassword = async(userMail,token)=>{
     html: `
     <h1>Sistema de gestión (VET-ESFOT 🐶 😺)</h1>
     <hr>
-    <a href=${process.env.URL_FRONTEND  || URL_FRONTEND}recuperar-password/${token}>Clic para reestablecer tu contraseña</a>
+    <a href=${process.env.URL_FRONTEND  || URL_FRONTEND}/recuperar-password/${token}>Clic para reestablecer tu contraseña</a>
     <hr>
     <footer>Grandote te da la Bienvenida!</footer>
     `
@@ -60,7 +60,7 @@ const sendMailToPaciente = async(userMail,password)=>{
     <h1>Sistema de gestión (VET-ESFOT 🐶 😺)</h1>
     <hr>
     <p>Contraseña de acceso: ${password}</p>
-    <a href=${process.env.URL_BACKEND || URL_FRONTEND}paciente/login>Clic para iniciar sesión</a>
+    <a href=${process.env.URL_BACKEND || URL_FRONTEND}/paciente/login>Clic para iniciar sesión</a>
     <hr>
     <footer>Grandote te da la Bienvenida!</footer>
     `

@@ -7,7 +7,7 @@ const Crear = () => {
     const jsConfetti = new JSConfetti()
     jsConfetti.addConfetti({
         emojis: ['🐶', '😽', '🐭', '🦜', '🙈', '🐊'],
-     })
+    })
 
     return (
             <div>

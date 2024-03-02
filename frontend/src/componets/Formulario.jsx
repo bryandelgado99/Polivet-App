@@ -6,12 +6,9 @@ import JSConfetti from 'js-confetti'
 
 export const Formulario = ({paciente}) => {
 
-    const jsConfetti = new JSConfetti()
-    jsConfetti.addConfetti({
-        emojis: ['🐶', '😽', '🐭', '🦜', '🙈', '🐊'],
-     })
-
-     const [form, setform] = useState({
+    const navigate = useNavigate()
+    const [mensaje, setMensaje] = useState({})
+    const [form, setform] = useState({
         nombre: paciente?.nombre ??"",
         propietario: paciente?.propietario ??"",
         email: paciente?.email ??"",
@@ -29,7 +26,6 @@ export const Formulario = ({paciente}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         if (paciente?._id) {
             const token = localStorage.getItem('token')
             const url = `${import.meta.env.VITE_BACKEND_URL}/paciente/actualizar/${paciente?._id}`
@@ -60,7 +56,7 @@ export const Formulario = ({paciente}) => {
 		                navigate('/dashboard/listar');
 		            }, 3000);
 		        } catch (error) {
-								setMensaje({ respuesta: error.response.data.msg, tipo: false })
+								setMensaje({respuesta: error.response.data.msg, tipo: false })
 		            setTimeout(() => {
 		                setMensaje({})
 		            }, 3000);
