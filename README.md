@@ -144,7 +144,7 @@ Recuperación de Contraseña
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-4.png)
 
-Correo de Confirmación 
+Confirmación de Correo Electrónico
 ---
 ![Image text](https://raw.githubusercontent.com/Byrontosh/Plantilla-App-Demo/main/src/assets/fondos/captura-6.png)
 
@@ -158,5 +158,107 @@ Dashboard o Panel Central de Información
 
 ## Estructura del proyecto
 ```
-(Árbol del proyecto)
+Polivet-App
+├─ backend
+│  ├─ .env.example
+│  ├─ package-lock.json
+│  ├─ package.json
+│  └─ src
+│     ├─ config
+│     │  └─ nodemailer.js
+│     ├─ controllers
+│     │  ├─ paciente_controller.js
+│     │  ├─ tratamiento_controller.js
+│     │  └─ veterinario_controller.js
+│     ├─ database.js
+│     ├─ helpers
+│     │  └─ crearJWT.js
+│     ├─ index.js
+│     ├─ middlewares
+│     │  ├─ autenticacion.js
+│     │  └─ validacionVeterinario.js
+│     ├─ models
+│     │  ├─ Paciente.js
+│     │  ├─ Tratamiento.js
+│     │  └─ Veterinario.js
+│     ├─ routers
+│     │  ├─ paciente_routes.js
+│     │  ├─ tratameinto_routes.js
+│     │  └─ veterinario_routes.js
+│     └─ server.js
+├─ frontend
+│  ├─ .env
+│  ├─ index.html
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ postcss.config.cjs
+│  ├─ public
+│  │  └─ images
+│  │     ├─ catforgot.jpg
+│  │     ├─ doglogin.jpg
+│  │     └─ dogregister.jpg
+│  ├─ README.md
+│  ├─ src
+│  │  ├─ App.css
+│  │  ├─ App.jsx
+│  │  ├─ assets
+│  │  │  ├─ code.png
+│  │  │  ├─ consulting.png
+│  │  │  ├─ dark.png
+│  │  │  ├─ design.png
+│  │  │  ├─ dog-hand.webp
+│  │  │  ├─ doglost.jpg
+│  │  │  ├─ facebook.png
+│  │  │  ├─ fondos
+│  │  │  │  ├─ captura-1.png
+│  │  │  │  ├─ captura-2.png
+│  │  │  │  ├─ captura-3.png
+│  │  │  │  ├─ captura-4.png
+│  │  │  │  ├─ captura-5.png
+│  │  │  │  ├─ captura-6.png
+│  │  │  │  └─ captura-7.png
+│  │  │  ├─ github.png
+│  │  │  ├─ linkedin.png
+│  │  │  ├─ rocket.webp
+│  │  │  ├─ twitter.png
+│  │  │  ├─ web1.png
+│  │  │  ├─ web2.png
+│  │  │  ├─ web3.png
+│  │  │  ├─ web4.png
+│  │  │  ├─ web5.png
+│  │  │  ├─ web6.png
+│  │  │  └─ youtube.png
+│  │  ├─ componets
+│  │  │  ├─ Alertas
+│  │  │  │  └─ Mensaje.jsx
+│  │  │  ├─ Formulario.jsx
+│  │  │  ├─ Perfil
+│  │  │  │  ├─ CardPerfil.jsx
+│  │  │  │  └─ FormularioPerfil.jsx
+│  │  │  └─ Tabla.jsx
+│  │  ├─ context
+│  │  │  └─ AuthProvider.jsx
+│  │  ├─ index.css
+│  │  ├─ layout
+│  │  │  ├─ Auth.jsx
+│  │  │  └─ Dashboard.jsx
+│  │  ├─ main.jsx
+│  │  ├─ paginas
+│  │  │  ├─ Actualizar.jsx
+│  │  │  ├─ Confirmar.jsx
+│  │  │  ├─ Crear.jsx
+│  │  │  ├─ Forgot.jsx
+│  │  │  ├─ LandinPage.jsx
+│  │  │  ├─ Listar.jsx
+│  │  │  ├─ Login.jsx
+│  │  │  ├─ NotFound.jsx
+│  │  │  ├─ Perfil.jsx
+│  │  │  ├─ Register.jsx
+│  │  │  ├─ Restablecer.jsx
+│  │  │  └─ Visualizar.jsx
+│  │  └─ routes
+│  │     └─ PrivateRoutes.jsx
+│  ├─ tailwind.config.cjs
+│  └─ vite.config.js
+└─ README.md
 ```
