@@ -97,7 +97,7 @@ Este archivo se debe ubicar en la raíz de la carpeta que corresponda al compone
 
 > [!Note]
 > Actualmente el proyecto usa el SMTP de Gmail, sin embargo, también es posible utilizar Mailtrap o el SMTP de Hotmail. Para este último, se debe añadir la siguiente variable:
-> - `EMAIL_SERVICE = hotmail`.
+> - `EMAIL_SERVICE = hotmail`
 
 #### JSON Web Tokens
 
@@ -108,6 +108,277 @@ Este archivo se debe ubicar en la raíz de la carpeta que corresponda al compone
 #### Vite
 
 - `VITE_BACKEND_URL = http://localhost:3000/api`
+
+## Referencia API
+
+### Veterinario
+
+- **Registrar un veterinario**
+
+```http
+  POST /api/registro
+```
+
+Body
+
+```
+{
+  "nombre":"Juan",
+  "apellido":"Perez",
+  "direccion":"San Carlos",
+  "telefono":"0999999999",
+  "email":"juanP@hotmail.com",
+  "password":"1234"
+}
+```
+
+- **Iniciar Sesión**
+
+```http
+  POST /api/login
+```
+Body
+
+```
+{
+  "email":"juanP@hotmail.com",
+  "password":"1234"
+}
+```
+
+- **Listar veterinarios**
+
+```http
+  GET /api/veterinarios
+```
+
+- **Confirmar Token**
+
+```http
+  GET /api/confirmar/:token
+```
+
+- **Recuperar contraseña**
+
+```http
+  POST /api/recuperar-password
+```
+Body
+
+```
+{
+  "email":"juanP@hotmail.com",
+}
+```
+
+- **Comprobar token para recuperar contraseña**
+
+```http
+  GET /api/recuperar-password/:token
+```
+
+- **Nueva contraseña**
+
+```http
+  POST /api/nuevo-password/:token
+```
+Body
+
+```
+{
+  "password":"5678",
+  "confirmpassword":"5678"
+}
+```
+
+> [!IMPORTANT]
+> Las rutas a continuación, correspondientes a Veterinario, se deben autenticar mediante un `Bearer Token`
+
+- **Perfil del veterinario**
+
+```http
+  GET /api/perfil
+```
+
+- **Actualizar contraseña**
+
+```http
+  PUT /api/veterinario/actualizarpassword
+```
+Body
+
+```
+{
+  "passwordactual":"5678",
+  "passwordnuevo":"hola"
+}
+```
+
+- **Detalle del veterinario**
+
+```http
+  GET /api/veterinario/:id
+```
+
+- **Actualizar perfil del veterinario**
+
+```http
+  PUT /api/veterinario/:id
+```
+Body
+
+```
+{
+  "nombre":"nombre-actualizado",
+  "apellido":"apellido-actualizado",
+  "telefono":"022222222"
+}
+```
+
+### Paciente
+
+- **Iniciar Sesión**
+
+```http
+  POST /api/paciente/login
+```
+Body
+
+```
+{
+  "email":"juan@gmail.com",
+  "password":"9124htxqam7"
+}
+```
+
+> [!IMPORTANT]
+> Las rutas a continuación, correspondientes a Paciente, se deben autenticar mediante un `Bearer Token`
+
+- **Registro**
+
+```http
+  POST /api/paciente/registro
+```
+
+Body
+
+```
+{
+  "nombre":"Fide",
+  "propietario":"Juan",
+  "email":"juan@gmail.com",
+  "celular":"0999999999",
+  "convencional":"022222222",
+  "ingreso":"03-21-2024",
+  "sintomas":"Corte de pelo y desparasitación",
+  "veterinario":"652d36f304c0962cf422d335"
+}
+```
+
+> [!NOTE]
+> El formato para fechas es *mes-día-año*.
+
+- **Listar pacientes**
+
+```http
+  GET /api/pacientes
+```
+
+- **Perfil del paciente**
+
+```http
+  GET /api/paciente/perfil
+```
+
+- **Detalle del paciente**
+
+```http
+  GET /api/paciente/:id
+```
+
+- **Actualizar perfil del paciente**
+
+```http
+  PUT /api/paciente/actualizar/:id
+```
+
+Body
+
+```
+{
+  "nombre":"Fidedigno",
+  "propietario":"Juan Perez",
+  "email":"juan@gmail.com",
+  "sintomas":"Corte de pelo, desparasitación y limpieza de orejas"
+}
+```
+
+- **Eliminar paciente**
+
+```http
+  DELETE /api/paciente/eliminar/:id
+```
+Body
+
+```
+{
+  "salida":"03-22-2024" 
+}
+```
+
+### Tratamiento
+
+> [!IMPORTANT]
+> Todas las rutas correspondientes a Tratamiento se deben autenticar mediante un `Bearer Token`
+
+- **Registro o creación del tratamiento**
+
+```http
+  POST /api/tratamiento/registro
+```
+
+Body
+
+```
+{
+  "nombre":"Limpieza",
+  "descripcion":"Limpieza de orejas",
+  "prioridad":"Alta",
+  "paciente":"652efd300b16c9fca733d669"
+}
+```
+
+- **Detalle del tratamiento**
+
+```http
+  GET /api/tratamiento/:id
+```
+
+- **Actualizar tratamiento**
+
+```http
+  PUT /api/tratamiento/:id
+```
+Body
+
+```
+{
+  "nombre": "Tratamiento de limpieza",
+  "prioridad":"Media"
+}
+```
+
+- **Eliminar tratamiento**
+
+```http
+  DELETE /api/tratamiento/:id
+```
+
+- **Cambiar el estado del tratamiento**
+
+```http
+  POST /api/tratamiento/estado/:id
+```
 
 ## Autores
 
