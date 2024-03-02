@@ -20,7 +20,7 @@ POLIVET es un sistema encargado de automatizar la gestión de una veterinaria y 
 ```bash
   cd frontend
 ```
-3. Configura las [variables de entorno](#noID)
+3. Configura las [variables de entorno](#variables-de-entorno)
 
 4. Instala las dependencias del proyecto
 ```bash
