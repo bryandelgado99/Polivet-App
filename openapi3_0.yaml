@@ -1,0 +1,483 @@
+openapi: 3.0.3
+info:
+  title: POLIVET
+  description: |-
+    POLIVET es un sistema encargado de automatizar la gestión de una veterinaria y sus principales actores (veterinarios, pacientes y tratamientos).
+    Puedes visitarnos en nuestra pagina web [https://polivet-app.netlify.app/](https://polivet-app.netlify.app/). ¡Estaremos gustosos de poder ayudarte a tí y a tus mascotas 🐶!
+
+    Nuestro proyecto cuenta con las tecnologías de:
+    - ReactJS
+    - Node JS
+    - Express JS
+    - Mongo DB 
+    
+    Si estás interesado puedes ver nuestro proyecto en GitHub:
+    - [Repositorio GitHub 😼](https://github.com/bryandelgado99/Polivet-App.git)
+  version: 1.0.11
+
+paths:
+  /api/registro:
+    post:
+      tags:
+        - Veterinario
+      summary: Registro
+      description: Agregar un nuevo cliente al sistema
+      requestBody:
+        description: Crear un nuevo cliente en la base de datos
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+      responses:
+        '200':
+          description: Operación Exitosa
+        '400':
+          description: Mal Requerimiento
+        '500':
+          description: Error interno del servidor
+
+  /api/login:
+    post:
+      tags:
+        - Veterinario
+      summary: Login
+      description: Entrar a la página web
+      requestBody:
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '200':
+          description: Operación Exitosa
+        '404':
+          description: Lo sentimos, el usuario no se encuentra registrado
+        '500':
+          description: Error interno del servidor
+
+  /api/veterinarios:
+    get:
+      tags:
+        - Veterinario
+      summary: Lista
+      description: Listar veterinarios
+      responses:
+        '200':
+          description: Operación Exitosa
+        '500':
+          description: Error interno del servidor   
+
+
+  /api/confirmar/:token:
+    get:
+      tags:
+        - Veterinario
+      summary: Confirmar
+      description: Confirmar token
+      responses:
+        '200':
+          description: Token confirmado
+        '404':
+          description: La cuenta ya ha sido confirmada
+        '500':
+          description: Error interno del servidor
+
+
+  /api/recuperar-password:
+    post:
+      tags:
+        - Veterinario
+      summary: Recuperar password
+      description: Enviar correo para que el usuario pueda recuperar su contraseña
+      requestBody:
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Recuperar_password'
+      responses:
+        '200':
+          description: Operación exitosa
+        '404':
+          description: Lo sentimos, el usuario no se encuentra registrado
+  
+  
+  /api/recuperar-password/:token:
+    get:
+      tags:
+        - Veterinario
+      summary: Comprobar Token
+      description: Comprobar que el Token enviado sea válido
+      responses:
+        '200':
+          description: Operación exitosa
+        '404':
+          description: Error interno
+
+
+  /api/nuevo-password/:token:
+    post:
+      tags:
+        - Veterinario
+      summary: Contraseña nueva
+      description: Nueva contraseña para el usuario
+      requestBody:
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Nueva_password'
+      responses:
+        '200':
+          description: Operación exitosa
+        '404':
+          description: Error interno
+
+
+  /api/perfil:
+    get:
+      tags:
+        - Veterinario
+      summary: Perfil Token
+      description: Perfil del usuario usando Bearer Token
+      responses:
+        '200':
+          description: Operación exitosa
+        '400':
+          description: Formato del token no válido
+
+
+  /api/veterinario/actualizarpassword:
+    put:
+      tags:
+        - Veterinario
+      summary: Actualizar password Token
+      description: Se actualiza la contraseña del usuario usando Bearer Token
+      requestBody:
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Actualizar_password'
+      responses:
+        '200':
+          description: Operación exitosa
+        '400':
+          description: Formato del token no válido
+
+
+  /api/veterinario/:id:
+    get:
+      tags:
+        - Veterinario
+      summary: Id Veterinario
+      description: El ID asociado al veterinario
+      responses:
+        '200':
+          description: Operación exitosa
+        '400':
+          description: Formato del token no válido
+    put:
+      tags:
+        - Veterinario
+      summary: Actualizar usuario
+      description: Actualizar los datos del usuario
+      requestBody:
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Actualizar_perfil'
+      responses:
+        '200':
+          description: Operación exitosa
+        '400':
+          description: Formato del token no válido
+
+
+  /api/paciente/login:
+    post:
+      tags:
+        - Paciente
+      summary: Paciente Login
+      description: Login del paciente a su perfil
+      requestBody:
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Login_paciente'
+      responses:
+        '200':
+          description: Operación exitosa
+        '404':
+          description: Lo sentimos, el usuario no se encuentra registrado
+
+
+  /api/paciente/registro:
+    post:
+      tags:
+        - Paciente
+      summary: Registro de paciente
+      description: Crear pedido de atencion para las mascotas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Registro_paciente'
+      responses:
+        '200':
+          description: Operación exitosa
+        '404':
+          description: Lo sentimos, el usuario no se encuentra registrado
+
+
+  /api/pacientes:
+    get:
+      tags:
+        - Paciente
+      summary: Listar Pacientes
+      description: Listar a los pacientes registrados por la veterinaria
+      responses:
+        '200':
+          description: Operación exitosa
+        '402':
+          description: Token invalido
+        '404':
+          description: Lo sentimos, debes proprocionar un token
+
+
+  /api/paciente/perfil:
+    get:
+      tags:
+        - Paciente
+      summary: Perfil Paciente
+      description: Mostrar el perfil del paciente
+      responses:
+        '200':
+          description: Operación exitosa
+        '402':
+          description: Token invalido
+        '404':
+          description: Lo sentimos, debes proprocionar un token
+
+
+  /api/paciente/:id :
+    get:
+      tags:
+        - Paciente
+      summary: Listar Pacientes
+      description: Listar el perfil de los pacientes por ID
+      responses:
+        '200':
+          description: Operación exitosa
+        '402':
+          description: ID inválido
+        '404':
+          description: Lo sentimos, debes proprocionar un token
+
+  /api/paciente/actualizar/:id :
+    put:
+      tags:
+        - Paciente
+      summary: Actualizar Pacientes
+      description: Actualizar a los pacientes registrados por ID
+      requestBody:
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Actualizar_paciente'
+      responses:
+        '200':
+          description: Operación exitosa
+        '402':
+          description: ID inválido
+        '404':
+          description: Lo sentimos, debes proprocionar un token
+
+
+  /api/paciente/eliminar/:id:
+    delete:
+      tags:
+        - Paciente
+      summary: Eliminar Pacientes
+      description: Elimina a los pacientes registrados por ID
+      requestBody:
+        content:
+          json:
+            schema:
+              $ref: '#/components/schemas/Eliminar_paciente'
+      responses:
+        '200':
+          description: Operación exitosa
+        '402':
+          description: ID inválido
+        '404':
+          description: Lo sentimos, debes proprocionar un token
+
+components:
+  schemas:
+    Usuario:
+      required:
+        - name
+        - photoUrls
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: Juan
+        apellido:
+          type: string
+          example: Perez
+        direccion:
+          type: string
+          example: San Carlos
+        telefono:
+          type: integer
+          example: 0999999999
+        email:
+          type: string
+          example: juanP@hotmail.com
+        password:
+          type: string
+          example: 1234
+      xml:
+        name: Usuario
+
+
+    Login:
+      type: object
+      properties:
+        email:
+          type: string
+          example: juanP@hotmail.com
+        password:
+          type: string
+          example: 1234
+      xml:
+        name: Login
+    
+    Recuperar_password:
+      type: object
+      properties:
+        email:
+          type: string
+          example: juanP@hotmail.com
+      xml:
+        name: Recuperar_passwordin
+
+    Token_Recuperar_password:
+      type: object
+      properties:
+        email:
+          type: string
+          example: juanP@hotmail.com
+      xml:
+        name: Token_Recuperar_passwordke
+    
+    Nueva_password:
+      type: object
+      properties:
+        password:
+          type: string
+          example: 5678
+        confirmpassword:
+          type: string
+          example: 5678
+      xml:
+        name: Nueva_password
+    
+    Actualizar_password:
+      type: object
+      properties:
+        passwordactual:
+          type: string
+          example: 5678
+        passwordnuevo:
+          type: string
+          example: hola
+      xml:
+        name: Actualizar_password
+
+    Actualizar_perfil:
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: nombre-actualizado
+        apellido:
+          type: string
+          example: apellido-actualizado
+        telefono:
+          type: string
+          example: 022222222
+      xml:
+        name: Actualizar_perfil
+
+    Login_paciente:
+      type: object
+      properties:
+        email:
+          type: string
+          example: juan@gmail.com
+        password:
+          type: string
+          example: 9124htxqam7
+      xml:
+        name: Login_paciente
+
+    Registro_paciente:
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: Fide
+        propietario:
+          type: string
+          example: Juan
+        email:
+          type: string
+          example: juan@gmail.com
+        celular:
+          type: string
+          example: 0999999999
+        convencional:
+          type: string
+          example: 022222222
+        ingreso:
+          type: string
+          example: 03-21-2024
+        sintomas:
+          type: string
+          example: Corte de pelo y desparasitación
+        veterinario:
+          type: string
+          example: 652d36f304c0962cf422d335
+      xml:
+        name: Registro_paciente
+
+
+    Actualizar_paciente:
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: Fidedigno
+        propietario:
+          type: string
+          example: Juan Perez
+        email:
+          type: string
+          example: juan@gmail.com
+        sintomas:
+          type: string
+          example: Corte de pelo, desparasitación y limpieza de orejas
+      xml:
+        name: Actualizar_paciente
+
+
+    Eliminar_paciente:
+      type: object
+      properties:
+        salida:
+          type: string
+          example: 03-22-2024
+      xml:
+        name: Eliminar_paciente
