@@ -63,7 +63,21 @@ MongoDB, local y Atlas, fue la base de datos elegida para el proyecto, esta es d
 ```
 
 > [!IMPORTANT]
-> Los puntos del 3 al 5 deben realizarse para cada componente de este proyecto, es decir, para el backend y el frontend. 
+> Los puntos del 3 al 5 deben realizarse para cada componente de este proyecto, es decir, para el backend y el frontend.
+
+## Ejecución Local
+- Servidor backend: http://localhost:3000
+- Servidor frontend (Vite): http://localhost:5173
+
+## Despliegue
+POLIVET debe desplegarse por componentes, para este caso se uso:
+- **Render** para el backend - [Backend URL](http//linkbackend), y
+- **Netlify** para el frontend - [Frontend URL](http//linkfrontend)
+
+> [!IMPORTANT]
+> No te olvides de definir las variables de entorno necesarias para el correcto funcionamiento de cada componente.
+> 
+> Para facilitar el despliegue del frontend en Netlify, primero se corrió el comando `npm run build` para generar la carpeta `dist` que contiene todo lo que este componente necesita.
 
 ## Variables de entorno
 
