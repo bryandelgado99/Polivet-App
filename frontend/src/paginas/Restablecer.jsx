@@ -55,7 +55,6 @@ const handleSubmit = async(e) => {
             setMensaje({respuesta:error.response.data.msg,tipo:false})
         }
     }
-}
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -86,6 +85,7 @@ const handleSubmit = async(e) => {
         </form>
         }
     </div>     
-)
+    )
+}
 
 export default Restablecer
