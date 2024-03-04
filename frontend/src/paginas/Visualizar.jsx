@@ -1,16 +1,17 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import Mensaje from '../componets/Alertas/Mensaje';
-import ModalTratamiento from '../componets/Modals/ModalTratamiento';
 import { useContext, useEffect, useState } from 'react';
 import TratamientosContext from '../context/TratamientosProvider';
-
+import ModalTratamiento from '../componets/Modals/ModalTratamiento';
+import TablaTratamientos from '../componets/TablaTratamientos';
+import Mensaje from '../componets/Alertas/Mensaje';
 
 const Visualizar = () => {
     const { id } = useParams()
-    const [paciente, setPaciente] = useState({})
     const [mensaje, setMensaje] = useState({})
-    const {modal, handleModal, tratamientos, setTratamientos} = useContext(TratamientosContext)
+    const [paciente, setPaciente] = useState({})
+    const {modal, handleModal,tratamientos, setTratamientos} = useContext(TratamientosContext)
+
 
     const formatearFecha = (fecha) => {
         const nuevaFecha = new Date(fecha)
@@ -31,6 +32,7 @@ const Visualizar = () => {
                 }
                 const respuesta = await axios.get(url, options)
                 setPaciente(respuesta.data.paciente)
+                setTratamientos(respuesta.data.tratamientos)
             } catch (error) {
                 setMensaje({ respuesta: error.response.data.msg, tipo: false })
             }
@@ -74,7 +76,7 @@ const Visualizar = () => {
                                     </p>
                                     <p className="text-md text-gray-00 mt-4">
                                         <span className="text-gray-600 uppercase font-bold">* Estado: </span>
-                                        <span class="bg-blue-100 text-green-500 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{paciente.estado && "activo"}</span>
+                                        <span className="bg-blue-100 text-green-500 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{paciente.estado && "activo"}</span>
                                     </p>
                                     <p className="text-md text-gray-00 mt-4">
                                         <span className="text-gray-600 uppercase font-bold">* Síntomas: </span>
@@ -86,17 +88,20 @@ const Visualizar = () => {
                                 </div>
                             </div>
                             <hr className='my-4' />
+                                {Object.keys(mensaje).length>0 && <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>}
                                 <div className='flex justify-between items-center'>
                                 <p>Este submódulo te permite visualizar los tratamientos del paciente</p>
                                     <button className="px-5 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700" onClick={handleModal}>Registrar</button>
                                 </div>
                                 {modal && (<ModalTratamiento idPaciente={paciente._id} />)}
+
                                 {
                                     tratamientos.length == 0 ? 
                                     <Mensaje tipo={'active'}>{'No existen registros'}</Mensaje>
-                                        :
+                                    :
                                     <TablaTratamientos tratamientos={tratamientos}/>
                                 }
+
                             </>
                         )
                         :

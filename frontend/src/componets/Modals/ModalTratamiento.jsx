@@ -1,9 +1,9 @@
-import { useContext, useState} from "react"
+import { useContext, useState } from "react"
 import TratamientosContext from "../../context/TratamientosProvider"
 
 const ModalTratamiento = ({ idPaciente }) => {
 
-    const {setModal, handleModal, registrarTratamiento} = useContext(TratamientosContext)
+    const {setModal, handleModal, registrarTratamientos} = useContext(TratamientosContext)
 
     const [form, setform] = useState({
         nombre: "",
@@ -20,7 +20,7 @@ const ModalTratamiento = ({ idPaciente }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        registrarTratamiento(form)
+        registrarTratamientos(form)
         setModal(false)
     }
 
@@ -39,7 +39,7 @@ const ModalTratamiento = ({ idPaciente }) => {
                         placeholder='nombre del tratamiento'
                         name='nombre'
                         value={form.nombre}
-	                    onChange={handleChange}
+                        onChange={handleChange}
                     />
                 </div>
                 <div>
@@ -61,16 +61,15 @@ const ModalTratamiento = ({ idPaciente }) => {
                 <label
                     htmlFor='prioridad:'
                     className='text-white uppercase font-bold text-sm'>Prioridad: </label>
-                    <select
-                        id='prioridad'
-                        className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'>
-                        <option value="">--- Seleccionar ---</option>
-                        <option value="Baja">Baja</option>
-                        <option value="Media">Media</option>
-                        <option value="Alta">Alta</option>
-                        value={form.prioridad}
-	                    onChange={handleChange}
-                    </select>
+                        <select
+                            id='prioridad'
+                            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5' placeholder="--- Seleccionar ---">
+                            <option value="Baja">Baja</option>
+                            <option value="Media">Media</option>
+                            <option value="Alta">Alta</option>
+                            name='nombre'
+                            onChange={handleChange}
+                        </select>
                 </div>
 
                 <div>

@@ -4,11 +4,11 @@ dotenv.config()
 
 let transporter = nodemailer.createTransport({
     service: 'gmail',
-    host: process.env.HOST_MAILTRAP,
-    port: process.env.PORT_MAILTRAP,
+    host: process.env.HOST_MAILTRAP || 'smtp.google.com',
+    port: process.env.PORT_MAILTRAP || 465,
     auth: {
-        user: process.env.USER_MAILTRAP,
-        pass: process.env.PASS_MAILTRAP,
+        user: process.env.USER_MAILTRAP || 'bryand9970@gmail.com',
+        pass: process.env.PASS_MAILTRAP || 'ylbtukhjxjttvaxu',
     }
 });
 

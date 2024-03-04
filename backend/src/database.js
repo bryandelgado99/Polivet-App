@@ -2,7 +2,7 @@
 //Importar mongoose
 import mongoose from 'mongoose'
 
-const ATLAS_URI = "mongodb+srv://bryand9970:bryand9970@cluster001.zj6u1tq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster001"
+const ATLAS_URI = "mongodb://localhost:27017/"
 
 // Pertimitir que solo los campos definidos en el Schema sean almacenados en la BDD
 mongoose.set('strictQuery', true)
