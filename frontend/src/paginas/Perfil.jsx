@@ -2,6 +2,9 @@ import React from 'react'
 import { CardPerfil } from '../componets/Perfil/CardPerfil'
 import FormularioPerfil from '../componets/Perfil/FormularioPerfil'
 import Password from '../componets/Perfil/Password'
+import { CardPerfilPaciente } from '../componets/Perfil/CardPerfilPaciente'
+import AuthContext from '../context/AuthProvider'
+import { useContext } from 'react'
 
 const Perfil = () => {
     return (
@@ -12,15 +15,21 @@ const Perfil = () => {
                 <p className='mb-8'>Este módulo te permite visualizar el perfil del usuario......</p>
             </div>
 
-            <div className='flex justify-around gap-x-8 flex-wrap gap-y-8 md:flex-nowrap'>
-                <div className='w-full md:w-1/2'>
-                    <FormularioPerfil/>
-                </div>
-                <div className='w-full md:w-1/2'>
-                    <CardPerfil/>
-                    <Password/>
-                </div>
-            </div>
+            {
+                "propietario" in auth 
+                    ? (<CardPerfilPaciente/>)
+                    : (
+                        <div className='flex justify-around gap-x-8 flex-wrap gap-y-8 md:flex-nowrap'>
+                            <div className='w-full md:w-1/2'>
+                                <FormularioPerfil/>
+                            </div>
+                            <div className='w-full md:w-1/2'>
+                                <CardPerfil/>
+                                <Password/>
+                            </div>
+                        </div>
+                    )
+            }
         </>
 
     )
