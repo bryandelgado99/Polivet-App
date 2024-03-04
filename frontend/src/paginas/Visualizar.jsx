@@ -3,11 +3,15 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Mensaje from '../componets/Alertas/Mensaje';
 import ModalTratamiento from '../componets/Modals/ModalTratamiento';
+import { useContext, useEffect, useState } from 'react';
+import TratamientosContext from '../context/TratamientosProvider';
+
 
 const Visualizar = () => {
     const { id } = useParams()
     const [paciente, setPaciente] = useState({})
     const [mensaje, setMensaje] = useState({})
+    const {modal, handleModal} = useContext(TratamientosContext)
 
     const formatearFecha = (fecha) => {
         const nuevaFecha = new Date(fecha)
@@ -85,9 +89,9 @@ const Visualizar = () => {
                             <hr className='my-4' />
                                 <div className='flex justify-between items-center'>
                                 <p>Este submódulo te permite visualizar los tratamientos del paciente</p>
-                                    <button className="px-5 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700">Registrar</button>
+                                    <button className="px-5 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700" onClick={handleModal}>Registrar</button>
                                 </div>
-                                {true && (<ModalTratamiento idPaciente={paciente._id}/>)}
+                                {modal && (<ModalTratamiento idPaciente={paciente._id} />)}
                             </>
                         )
                         :

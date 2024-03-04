@@ -1,4 +1,10 @@
+import { useContext } from "react"
+import TratamientosContext from "../../context/TratamientosProvider"
+
 const ModalTratamiento = ({ idPaciente }) => {
+
+    const {handleModal} = useContext(TratamientosContext)
+
     return (
         <div className="lg:w-2/4 lg:h-3/5 bg-gray-800 bg-opacity-100 top-1/4 left-1/3 fixed sticky-0 rounded-lg overflow-y-scroll ">
             <p className='text-white uppercase font-bold text-lg text-center mt-4'>Tratamientos</p>
@@ -61,8 +67,7 @@ const ModalTratamiento = ({ idPaciente }) => {
                     hover:bg-green-900 cursor-pointer'
                     value='Registrar' />
 
-                    <button className="sm:w-auto leading-3 text-center text-white px-6 py-4 rounded-lg bg-red-700 hover:bg-red-900"
-										>Cancelar</button>
+                    <button className="sm:w-auto leading-3 text-center text-white px-6 py-4 rounded-lg bg-red-700 hover:bg-red-900" onClick={handleModal}>Cancelar</button>
                 </div>
 
             </form>
