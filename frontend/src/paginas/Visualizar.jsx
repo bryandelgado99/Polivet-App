@@ -10,7 +10,7 @@ const Visualizar = () => {
     const { id } = useParams()
     const [paciente, setPaciente] = useState({})
     const [mensaje, setMensaje] = useState({})
-    const {modal, handleModal} = useContext(TratamientosContext)
+    const {modal, handleModal, tratamientos, setTratamientos} = useContext(TratamientosContext)
 
     const formatearFecha = (fecha) => {
         const nuevaFecha = new Date(fecha)
@@ -91,6 +91,12 @@ const Visualizar = () => {
                                     <button className="px-5 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700" onClick={handleModal}>Registrar</button>
                                 </div>
                                 {modal && (<ModalTratamiento idPaciente={paciente._id} />)}
+                                {
+                                    tratamientos.length == 0 ? 
+                                    <Mensaje tipo={'active'}>{'No existen registros'}</Mensaje>
+                                        :
+                                    <TablaTratamientos tratamientos={tratamientos}/>
+                                }
                             </>
                         )
                         :

@@ -4,6 +4,7 @@ const TratamientosContext = createContext()
 
 const TratamientosProvider = ({ children }) => {
     const [modal, setModal] = useState(false)
+    const [tratamientos, setTratamientos] = useState([])
 
 
     const handleModal = () => {
@@ -15,7 +16,9 @@ const TratamientosProvider = ({ children }) => {
             {
                 modal,
                 setModal,
-                handleModal   
+                handleModal,
+                tratamientos,
+                setTratamientos   
             }
         }>
             {children}
