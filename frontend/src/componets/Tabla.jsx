@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MdDeleteForever, MdNoteAdd, MdInfo } from "react-icons/md";
+import { MdDeleteForever, MdNoteAdd, MdInfo, MdVisibility, MdUpdate } from "react-icons/md";
 import axios from 'axios';
 import Mensaje from "./Alertas/Mensaje";
 import { useNavigate } from 'react-router-dom'
@@ -83,8 +83,8 @@ const Tabla = () => {
                                             <span className="bg-blue-100 text-green-500 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{paciente.estado && "activo"}</span>
                                         </td>
                                         <td className='py-2 text-center'>
-                                            <MdNoteAdd className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2" onClick={() => navigate(`/dashboard/visualizar/${paciente._id}`)} />
-                                            <MdInfo 
+                                            <MdVisibility className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2" onClick={() => navigate(`/dashboard/visualizar/${paciente._id}`)} />
+                                            <MdUpdate
                                             className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2" 
                                             onClick={() => navigate(`/dashboard/actualizar/${paciente._id}`)}    
                                             />
