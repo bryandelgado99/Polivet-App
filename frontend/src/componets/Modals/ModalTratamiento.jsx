@@ -12,11 +12,14 @@ const ModalTratamiento = ({ idPaciente }) => {
         paciente:idPaciente
     })
 
+    console.log(form)
     const handleChange = (e) => {
-        setform({...form,
-            [e.target.name]:e.target.value
-        })
-    }
+        console.log('handleChange called');
+        setform((prevForm) => ({
+          ...prevForm,
+          [e.target.name]: e.target.value
+        }));
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -63,12 +66,14 @@ const ModalTratamiento = ({ idPaciente }) => {
                     className='text-white uppercase font-bold text-sm'>Prioridad: </label>
                         <select
                             id='prioridad'
-                            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5' placeholder="--- Seleccionar ---">
+                            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5'
+                            value={form.prioridad}  // Asegúrate de establecer el valor del select de acuerdo con el estado
+                            onChange={handleChange}
+                            name="prioridad"
+                        >
                             <option value="Baja">Baja</option>
                             <option value="Media">Media</option>
                             <option value="Alta">Alta</option>
-                            name='nombre'
-                            onChange={handleChange}
                         </select>
                 </div>
 
