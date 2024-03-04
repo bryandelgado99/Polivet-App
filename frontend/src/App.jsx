@@ -30,7 +30,7 @@ function App() {
           <Route path='/' element={<Auth/>}>
             <Route path='login' element={<Login/>}/>
             <Route path='register' element={<Register/>}/>
-            <Route path='forgot' element={<Forgot/>}/>
+            <Route path='forgot/:id' element={<Forgot/>}/>
             <Route path='confirmar/:token' element={<Confirmar/>}/>
             <Route path='recuperar-password/:token' element={<Restablecer/>}/>
             <Route path='*' element={<NotFound />} />
