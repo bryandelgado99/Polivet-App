@@ -17,6 +17,7 @@ const Perfil = () => {
                 </div>
                 <div className='w-full md:w-1/2'>
                     <CardPerfil/>
+                    <Password/>
                 </div>
             </div>
         </>

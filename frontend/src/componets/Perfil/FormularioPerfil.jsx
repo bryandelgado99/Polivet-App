@@ -32,12 +32,12 @@ const FormularioPerfil = () => {
         return
     }
 
-    const resultado = await actualizarPerfil(form)
+      const resultado = await actualizarPerfil(form)
       setMensaje(resultado)
       setTimeout(() => {
           setMensaje({})
       }, 3000);
-    }
+  }
     
     return (
       <form onSubmit={handleSubmit}>
