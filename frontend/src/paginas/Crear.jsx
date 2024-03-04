@@ -1,13 +1,7 @@
 import React from 'react'
 import { Formulario } from '../componets/Formulario'
-import JSConfetti from 'js-confetti'
 
 const Crear = () => {
-
-    const jsConfetti = new JSConfetti()
-    jsConfetti.addConfetti({
-        emojis: ['🐶', '😽', '🐭', '🦜', '🙈', '🐊'],
-    })
 
     return (
             <div>

@@ -1,13 +1,7 @@
 import React from 'react'
 import Tabla from '../componets/Tabla'
-import JSConfetti from 'js-confetti'
 
 const Listar = () => {
-
-    const jsConfetti = new JSConfetti()
-    jsConfetti.addConfetti({
-        emojis: ['🐶', '😽', '🐭', '🦜', '🙈', '🐊'],
-     })
 
     return (
         <div>
