@@ -20,7 +20,7 @@ const ModalTratamiento = ({ idPaciente }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        registrarTratamientos(form)
+        registrarTratamiento(form)
         setModal(false)
     }
 
