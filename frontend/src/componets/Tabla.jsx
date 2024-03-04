@@ -3,8 +3,6 @@ import axios from 'axios';
 import Mensaje from "./Alertas/Mensaje";
 import { useNavigate } from 'react-router-dom'
 import { useContext, useEffect, useState } from "react";
-const { auth } = useContext(AuthContext)
-
 
 const Tabla = () => {
     const { auth } = useContext(AuthContext)

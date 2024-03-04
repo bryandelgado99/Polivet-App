@@ -2,13 +2,11 @@ import { useContext } from 'react'
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
 import AuthContext from '../context/AuthProvider'
 
-
 const Dashboard = () => {
     const location = useLocation()
     const urlActual = location.pathname
     const { auth} = useContext(AuthContext)
     const autenticado = localStorage.getItem('token')
-
 
     return (
         <div className='md:flex md:min-h-screen'>
