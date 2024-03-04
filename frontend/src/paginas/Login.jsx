@@ -25,21 +25,6 @@ const Login = () => {
         const url = form.password.includes("vet")
             ? `${import.meta.env.VITE_BACKEND_URL}/paciente/login`
             : `${import.meta.env.VITE_BACKEND_URL}/login`
-        // Validaciones mejoradas
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        // Verificar si el correo electrónico es válido
-        if (!form.email || !emailRegex.test(form.email)) {
-            setMensaje({ respuesta: "Por favor, ingresa un correo electrónico válido", tipo: false });
-            return;
-        }
-
-        // Verificar si la contraseña es lo suficientemente larga (puedes ajustar el mínimo según tus necesidades)
-        if (!form.password || form.password.length < 6) {
-            setMensaje({ respuesta: "La contraseña debe tener al menos 6 caracteres", tipo: false });
-            return;
-        }
-
         try {
             const respuesta = await axios.post(url, form);
             localStorage.setItem('token', respuesta.data.token);

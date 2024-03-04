@@ -38,6 +38,7 @@ const loginPaciente = async(req,res)=>{
         emailP,
         celular,
         convencional,
+        rol:"paciente",
         _id
     })
 }
