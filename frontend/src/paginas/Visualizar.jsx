@@ -5,9 +5,11 @@ import TratamientosContext from '../context/TratamientosProvider';
 import ModalTratamiento from '../componets/Modals/ModalTratamiento';
 import TablaTratamientos from '../componets/TablaTratamientos';
 import Mensaje from '../componets/Alertas/Mensaje';
+import AuthContext from '../context/AuthProvider';
 
 const Visualizar = () => {
     const { id } = useParams()
+    const { auth } = useContext(AuthContext)
     const [mensaje, setMensaje] = useState({})
     const [paciente, setPaciente] = useState({})
     const {modal, handleModal,tratamientos, setTratamientos} = useContext(TratamientosContext)
@@ -46,6 +48,12 @@ const Visualizar = () => {
                 <h1 className='font-black text-4xl text-gray-500'>Visualizar Paciente</h1>
                 <hr className='my-4' />
                 <p className='mb-8'>Este submódulo te permite visualizar los datos del paciente</p>
+                {
+                    auth.rol === "veterinario" &&
+                    (
+                        <button className="px-5 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700" onClick={handleModal}>Registrar</button>
+                    )
+                }
             </div>
             <div>
                 {

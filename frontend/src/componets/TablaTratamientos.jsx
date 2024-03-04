@@ -1,9 +1,13 @@
 import { MdDeleteForever, MdOutlineSecurityUpdateGood, MdPublishedWithChanges } from "react-icons/md";
 import { useContext } from "react";
 import TratamientosContext from "../context/TratamientosProvider";
+import { useContext } from "react";
+import AuthContext from "../context/AuthProvider";
+
 
 const TablaTratamientos = ({tratamientos}) => {
 
+    const { auth } = useContext(AuthContext)
     const {handleDelete, handleStatus} = useContext(TratamientosContext)
 
     return (
@@ -30,11 +34,22 @@ const TablaTratamientos = ({tratamientos}) => {
                                 <span className="bg-blue-100 text-green-500 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{tratamiento.estado && "activo"}</span>
                             </td>
                             <td className='py-2 text-center'>
-                            <MdPublishedWithChanges className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2"/>
-                            
-                            <MdOutlineSecurityUpdateGood className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2" onClick={()=>handleStatus(tratamiento._id)}/>
-
-                            <MdDeleteForever className="h-8 w-8 text-red-900 cursor-pointer inline-block" onClick={()=>handleDelete(tratamiento._id)}/>
+                            {
+                                auth.rol === "veterinario" &&
+                                    (
+                                        <>
+                                            <MdPublishedWithChanges className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2"/>
+                                                
+                                                <MdOutlineSecurityUpdateGood className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2"
+                                                    onClick={()=>handleStatus(tratamiento._id)}
+                                                />
+                                
+                                                <MdDeleteForever className="h-8 w-8 text-red-900 cursor-pointer inline-block"
+                                                    onClick={()=>handleDelete(tratamiento._id)}
+                                                />
+                                            </>
+                                        )
+                                }
                             </td>
                         </tr>
                     ))
