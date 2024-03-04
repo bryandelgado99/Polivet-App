@@ -3,15 +3,8 @@ import { MdDeleteForever, MdNoteAdd, MdInfo } from "react-icons/md";
 import axios from 'axios';
 import Mensaje from "./Alertas/Mensaje";
 import { useNavigate } from 'react-router-dom'
-import JSConfetti from "js-confetti";
 
 const Tabla = () => {
-
-    const jsConfetti = new JSConfetti()
-    jsConfetti.addConfetti({
-        emojis: ['🐶', '😽', '🐭', '🦜', '🙈', '🐊'],
-     })
-
     const navigate = useNavigate()
     const [pacientes, setPacientes] = useState([])
 

@@ -42,11 +42,11 @@ export const Formulario = ({paciente}) => {
         }
 
         // Validación de números de teléfono
-        const phoneRegex = /^\d{10}$/;
+        /*const phoneRegex = /^\d{10}$/;
         if (!phoneRegex.test(form.celular.trim()) || (form.convencional.trim() && !phoneRegex.test(form.convencional.trim()))) {
             setMensaje({ respuesta: "Ingrese números de teléfono válidos", tipo: false });
             return;
-        }
+        }*/
 
         try {
             const token = localStorage.getItem('token');
