@@ -1,7 +1,6 @@
 import { MdDeleteForever, MdOutlineSecurityUpdateGood, MdPublishedWithChanges } from "react-icons/md";
 import { useContext } from "react";
 import TratamientosContext from "../context/TratamientosProvider";
-import { useContext } from "react";
 import AuthContext from "../context/AuthProvider";
 
 
