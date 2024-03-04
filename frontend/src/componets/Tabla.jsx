@@ -1,8 +1,9 @@
-import { MdDeleteForever, MdVisibility, MdUpdate } from "react-icons/md";
+import { MdDeleteForever, MdVisibility, MdUpdate } from "react-icons/md"
 import axios from 'axios';
 import Mensaje from "./Alertas/Mensaje";
 import { useNavigate } from 'react-router-dom'
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react"
+import AuthContext from "../context/AuthProvider"
 
 const Tabla = () => {
     const { auth } = useContext(AuthContext)
