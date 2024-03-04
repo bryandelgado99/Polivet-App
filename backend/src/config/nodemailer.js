@@ -46,8 +46,6 @@ const sendMailToRecoveryPassword = async(userMail,token)=>{
 }
 
 
-
-
 // send mail to patient
 const sendMailToPaciente = async(userMail,password)=>{
     let info = await transporter.sendMail({
