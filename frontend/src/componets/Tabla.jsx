@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { MdDeleteForever, MdNoteAdd, MdInfo, MdVisibility, MdUpdate } from "react-icons/md";
+import { MdDeleteForever, MdVisibility, MdUpdate } from "react-icons/md";
 import axios from 'axios';
 import Mensaje from "./Alertas/Mensaje";
 import { useNavigate } from 'react-router-dom'
