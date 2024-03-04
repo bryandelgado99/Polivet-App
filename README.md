@@ -37,6 +37,9 @@ MongoDB, local y Atlas, fue la base de datos elegida para el proyecto, esta es d
   <img src="https://th.bing.com/th/id/R.4099ef6a1abf1017541a3610518ae1bc?rik=MBn0BEzOCzDMIg&riu=http%3a%2f%2fs3.amazonaws.com%2finfo-mongodb-com%2f_com_assets%2fcms%2fkuzt9r42or1fxvlq2-Meta_Generic.png&ehk=4LHQqZSvagc%2fLeF%2fIYFZWxb2l%2fqZbOWQctbvElNvSv8%3d&risl=&pid=ImgRaw&r=0" width="350px">
 </p>
 
+# Conoces nuestra API | Documentación 
+La API de PoliVet posee un amplio catálogo de documentación, en el cual, se detalla cada uno de los funcionamientos de los diferentes apartados de la API, su composición y resultados. Puedes acceder a esta misma mediante el siguiente enlace: [Documentación PoliVet APIRestful](https://mino-mateo.github.io/Documentacion_PoliVet/)
+
 ## Instalación Local
 1. Clona el repositorio 
 ```bash
