@@ -22,7 +22,9 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        const url = form.password.includes("vet")
+            ? `${import.meta.env.VITE_BACKEND_URL}/paciente/login`
+            : `${import.meta.env.VITE_BACKEND_URL}/login`
         // Validaciones mejoradas
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
