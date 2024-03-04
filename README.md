@@ -72,7 +72,7 @@ MongoDB, local y Atlas, fue la base de datos elegida para el proyecto, esta es d
 ## Despliegue
 POLIVET debe desplegarse por componentes, para este caso se uso:
 - **Render** para el backend - [Backend URL](https://poli-vet.onrender.com), y
-- **Netlify** para el frontend - [Frontend URL](https://polivet-app.netlify.app/)
+- **Netlify** para el frontend - [Frontend URL](https://polivet.netlify.app/)
 
 > [!IMPORTANT]
 > No te olvides de definir las variables de entorno necesarias para el correcto funcionamiento de cada componente.
