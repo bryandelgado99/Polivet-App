@@ -2,15 +2,13 @@ import nodemailer from "nodemailer"
 import dotenv from 'dotenv'
 dotenv.config()
 
-const URL_FRONTEND = "http://localhost:5173"
-
 let transporter = nodemailer.createTransport({
     service: 'gmail',
-    host: process.env.HOST_MAILTRAP || "smtp.google.com",
-    port: process.env.PORT_MAILTRAP || 465,
+    host: process.env.HOST_MAILTRAP,
+    port: process.env.PORT_MAILTRAP,
     auth: {
-        user: process.env.USER_MAILTRAP || "bryand9970@gmail.com",
-        pass: process.env.PASS_MAILTRAP || "ylbtukhjxjttvaxu",
+        user: process.env.USER_MAILTRAP,
+        pass: process.env.PASS_MAILTRAP,
     }
 });
 
@@ -22,7 +20,7 @@ const sendMailToUser = async(userMail,token)=>{
     html: `
     <h1>Sistema de gestión (VET-ESFOT 🐶 😺)</h1>
     <hr>
-    <a href=${process.env.URL_FRONTEND || URL_FRONTEND}/confirmar/${token}>Clic para confirmar tu cuenta</a>
+    <a href=${process.env.URL_FRONTEND}/confirmar/${token}>Clic para confirmar tu cuenta</a>
     <hr>
     <footer>Grandote te da la Bienvenida!</footer>
     `
@@ -39,7 +37,7 @@ const sendMailToRecoveryPassword = async(userMail,token)=>{
     html: `
     <h1>Sistema de gestión (VET-ESFOT 🐶 😺)</h1>
     <hr>
-    <a href=${process.env.URL_FRONTEND  || URL_FRONTEND}/recuperar-password/${token}>Clic para reestablecer tu contraseña</a>
+    <a href=${process.env.URL_FRONTEND}/recuperar-password/${token}>Clic para reestablecer tu contraseña</a>
     <hr>
     <footer>Grandote te da la Bienvenida!</footer>
     `
@@ -60,7 +58,7 @@ const sendMailToPaciente = async(userMail,password)=>{
     <h1>Sistema de gestión (VET-ESFOT 🐶 😺)</h1>
     <hr>
     <p>Contraseña de acceso: ${password}</p>
-    <a href=${process.env.URL_BACKEND || URL_FRONTEND}/paciente/login>Clic para iniciar sesión</a>
+    <a href=${process.env.URL_BACKEND}/paciente/login>Clic para iniciar sesión</a>
     <hr>
     <footer>Grandote te da la Bienvenida!</footer>
     `
