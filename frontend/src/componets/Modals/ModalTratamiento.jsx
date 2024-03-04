@@ -71,6 +71,7 @@ const ModalTratamiento = ({ idPaciente }) => {
                             onChange={handleChange}
                             name="prioridad"
                         >
+                            <option value="">Selecciona una opción</option>
                             <option value="Baja">Baja</option>
                             <option value="Media">Media</option>
                             <option value="Alta">Alta</option>
