@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Mensaje from '../componets/Alertas/Mensaje';
 import ModalTratamiento from '../componets/Modals/ModalTratamiento';
