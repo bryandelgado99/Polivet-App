@@ -1,6 +1,7 @@
 import React from 'react'
 import { CardPerfil } from '../componets/Perfil/CardPerfil'
 import FormularioPerfil from '../componets/Perfil/FormularioPerfil'
+import Password from '../componets/Perfil/Password'
 
 const Perfil = () => {
     return (
